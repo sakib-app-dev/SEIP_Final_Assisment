@@ -13,13 +13,13 @@
           <input class="form-control ms-5 me-2" type="search" style="width:300px" placeholder="Search" aria-label="Search">
           <button class="btn bg-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-        <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse ms-5 " id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('users.product.list') }}">Products</a>
+              <a class="nav-link" href="{{ route('product.list') }}">Products</a>
             </li>
             <li class="nav-item">
               
@@ -30,6 +30,18 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('about') }}">About Us</a>
             </li>
+
+
+            @auth
+            <li class="nav-item "> 
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <input type="hidden">
+                  <a class="btn btn-dark" style="color:white;text-decoration:none;padding-top:10px" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                      this.closest('form').submit();">Logout</a>
+              </form>
+              </li>
+            @else
             <li class="nav-item">
               <a class="nav-link" href="about-us.html">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -38,13 +50,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class=" nav-link   me-2"  style="color: white;" href="{{ route('users.login') }}">Log-in</a>
+              <a class=" nav-link   me-2"  style="color: white;" href="{{ route('login') }}">Log-in</a>
             </li>
             <li class="nav-item">
-              <a class=" nav-link  " style="color: white;" href="{{ route('users.register') }}">Register</a>
+              <a class=" nav-link  " style="color: white;" href="{{ route('register') }}">Register</a>
             </li>
 
-            
+            @endauth
             
           </ul>
           
@@ -61,15 +73,10 @@
         
           
           <ul >
-            <li><a class="dropdown-item" href="#">Fasion</a></li>
+            <li><a class="dropdown-item" href="#">Kids</a></li>
             <li><a class="dropdown-item" href="#">Man</a></li>
             <li><a class="dropdown-item" href="#">Woman</a></li>
-            <li><a class="dropdown-item" href="#">Fasion</a></li>
-            <li><a class="dropdown-item" href="#">Man</a></li>
-            <li><a class="dropdown-item" href="#">Woman</a></li>
-            <li><a class="dropdown-item" href="#">Fasion</a></li>
-            <li><a class="dropdown-item" href="#">Man</a></li>
-            <li><a class="dropdown-item" href="#">Woman</a></li>
+            
           </ul>
       
       </div>

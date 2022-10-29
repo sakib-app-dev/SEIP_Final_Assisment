@@ -25,7 +25,7 @@
 							{{-- brand --}}
 								@php
 									
-									$list = ['Polo' => 'Polo', 'W-Men' => 'W-Men'];
+									$list = ['Polo' => 'Polo', 'Wild-Men' => 'Wild-Men','Dorjibari'=>'Dorjibari'];
 								@endphp
 								<x-form.select class="form-select form-select-lg mb-3 form-control" name="brand" label="Brand"   :list=$list />
 								<div class="form-group">

@@ -10,15 +10,12 @@
                    <p class="text-success">{{session('message')  }}</p>
                    @endif 
                     <div class="col-md-4">
-                        <h4>Basic Table:</h4>
+                        <h4>Product Table:</h4>
                         
                     </div>
                     
-                    <div class="col-md-8  text-right">
-                        
-                        <a href="#" class="btn btn-danger">Trash</a>
-                        <a href="#" class="btn btn-success">Pdf</a>
-                    </div>
+                    
+                     
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -46,7 +43,7 @@
                                     <td><img src="{{ asset('storage/products/'.$data->image) }}" alt="" height="50px"></td>
                                     <td>{{ $data->status? 'Active': 'Inactive' }}</td> 
                                     
-                                    <td>
+                                    <td class="d-flex">
 										<a href="{{ route('product.show',$data->id) }}" class="btn btn-primary">Show</a>
 										<a href="{{ route('product.edit',$data->id) }}" class="btn btn-success">Edit</a>
 										

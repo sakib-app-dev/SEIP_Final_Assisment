@@ -16,37 +16,37 @@
 					<div class="row">
 						<h3 class="title1">Product Form :</h3>
 						<div class="form-three widget-shadow">
-							<form action="{{ route('admin.product.update',$product->id) }}" method="POST">
+							<form action="{{ route('product.update',$product->id) }}" method="POST">
 								@csrf
 								@method('patch')
 
 								
 								<div class="form-group">
 									
-									<x-form.input type="text" name="name" label="Product name" value="{{ old('title', $product->title ) }}" required placeholder="Product Title...." />
+									<x-form.input type="text" name="name" label="Product_name" value="{{ old('name', $product->name ) }}" required placeholder="Product Name...." />
 								</div>
 
 							
 								@php
 									
-									$list = ['Kids' => 'Kids', 'Men' => 'Men','Women'=>'Women'];
+									$product_list = ['Kids' => 'Kids', 'Men' => 'Men','Women'=>'Women'];
 								@endphp
-								<x-form.select class="form-select form-select-lg mb-3 form-control" name="category"   :list=$list />
+								<x-form.select class="form-select form-select-lg mb-3 form-control" name="category" label="Category"   :list=$product_list />
 
 								{{-- brand --}}
 								@php
 									
-									$list = ['Polo' => 'Polo', 'W-Men' => 'W-Men'];
+									$brand_list = ['Polo' => 'Polo', 'Wild-Men' => 'Wild-Men','Dorjibari'=>'Dorjibari'];
 								@endphp
-								<x-form.select class="form-select form-select-lg mb-3 form-control" name="brand" label="Brand"   :list=$list />
-
+								<x-form.select class="form-select form-select-lg mb-3 form-control" name="brand" label="Brand"   :list=$brand_list />
+								<x-form.input type="number" name="price" label="Product_Price" value="{{ old('price', $product->price ) }}" required placeholder="Product Price...." />
+								<div class="form-group">
+									<x-form.textarea name="description" class="form-control" id="" cols="30" rows="4" label="Description" text="{{ $product->description }}"/>
+								</div>
 								<div class="form-check"> 
 								  <x-form.radio name="is_active" class="form-check-input"  type="checkbox" label="Is Active ?"/>
 								</div>
 
-								<div class="form-group">
-									<x-form.textarea name="description" class="form-control" id="" cols="30" rows="4" label="Description" text="{{ $product->description }}"/>
-								</div>
 								
 								<button type="submit" class="btn btn-primary">Submit</button>
 							  </form>

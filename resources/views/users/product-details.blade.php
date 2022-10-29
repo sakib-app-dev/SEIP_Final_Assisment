@@ -10,19 +10,19 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-4">
-                <img class="capimg" src="{{ asset('assets/users/') }}/images/cap.jpg" alt="cap">
+                <img class="capimg" src="{{ asset('storage/products/'.$product->image) }}" alt="img">
             </div>
             <div class="offset-md-2 col-md-6">
-             <h4>Cap for man</h4>
-             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, illum earum ratione ad, corporis sit assumenda, quos voluptate cupiditate veniam iste? Iure perspiciatis quas iste corporis unde nemo repellendus. Labore.</p>
-             <h2 class="mt-5" style="color:orange ;">56 BDT</h2>
+             <h4>{{ $product->name }}</h4>
+             <p>{{ $product->description }}</p>
+             <h2 class="mt-5" style="color:orange ;">{{ $product->price }} BDT</h2>
              <form action="">
                 <div class="quantity"><p class="mt-5">Quantity: </p>
                     <div class="button">   <button class="pm">-</button> <input type="number" style="width:60px;height:48px;text-align: center;" step="1" min="1" value="1" name="" id="" col="4"> <button class="pm">+</button></div> </div>
                    <div class="last mt-5">
                        
-                       <a href="{{ route('users.checkout') }}" class="btn btn-primary btn-lg">Buy Now</a>
-                       <a href="checkout.html" class="btn btn-primary btn-lg">Add to Cart</a>
+                       <a href="#" class="btn btn-primary btn-lg">Buy Now</a>
+                       <a href="#" class="btn btn-primary btn-lg">Add to Cart</a>
                        
                    </div>
 

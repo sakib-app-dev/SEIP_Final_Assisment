@@ -1,4 +1,4 @@
-@props(['name','label' => '','cols','rows',])
+@props(['name','label' => '','cols','rows','text'=>''])
 {{-- dd({{ $attributes}}); --}}
 
 <div class="mb-3">
@@ -14,7 +14,7 @@
     cols="{{ $cols }}" 
     rows="{{ $rows }}" 
     {{ $attributes->merge(['class' => 'form-control']) }} 
-    ></textarea>
+    >{{$text}}</textarea>
 
     @error($name)
         <div class="form-text text-danger">{{ $message }}</div>

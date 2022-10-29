@@ -90,14 +90,16 @@ class ProductController extends Controller
     {
         $product=Product::find($id);
         $product->update([
-            'title'=>$request->product_title,
+            'name'=>$request->name,
             'category'=>$request->category,
-            'is_active'=>$request->is_active ? true : false,
-            'description'=>$request->description
+            'brand'=>$request->brand,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'status'=>$request->status ? true : false,
         ]);
        
         return redirect()
-        ->route('admin.product.index')
+        ->route('product.index')
         ->with('message','Updated Successfully...');
     }
 
@@ -109,10 +111,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        
         $product=Product::find($id);
         $product->delete();
         return redirect()
-        ->route('admin.product.index')
+        ->route('product.index')
         ->with('message','Delete Successfully');
     }
 
@@ -125,30 +128,9 @@ class ProductController extends Controller
         return $fileName;
     }
 
-    public function productTrash()
-    {
-        $product=Product::onlyTrashed()->get();
-        return view('admin.products.trash',compact('product'));
-    }
+   
 
-    public function productRestore($id)
-    {
-        $product=Product::onlyTrashed()->find($id);
-        $product->restore();
-        return redirect()
-        ->route('product.trash')
-        ->with('message','Restore Successfully');
-    }
-
-    public function productDelete($id)
-    {
-        $product=Product::onlyTrashed()->find($id);
-        $product->forceDelete();
-        return redirect()
-        ->route('product.trash')
-        ->with('message','Delete Successfully');
-    }
-
+ 
 
 
 

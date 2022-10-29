@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[UserController::class,'index'])->name('home');
+Route::get('/about', [UserController::class, 'about'])->name('about');
+Route::prefix('prouct')->name('product.')->group(function(){
+    Route::get('/list', [UserController::class, 'productList'])->name('list');
+    Route::get('/details/{id}', [UserController::class, 'productDetails'])->name('details');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 require __DIR__.'/auth.php';
 
